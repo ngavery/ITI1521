@@ -1,15 +1,28 @@
 
 public class SequenceMax{
-public static int sequenceMax((à compléter)  x) {
+public static int sequenceMax(int x[]) {
     /*
      cette focntion prend un tableau de nombres et retourne
-     la longueur de la plus longue s�quence des �l�ments cons�cutive �gaux 
+     la longueur de la plus longue séquence des éléments consécutive égaux 
      */
      // VOTRE CODE
-  int i = 0;
+  
   int maxL = 1;
-  for(i)
+  int tempL = 1;
+  int i = 0;
+  while(i < x.length - 1) {
+    tempL = 1;
+    while(i < x.length - 1 && x[i] == x[i+1]) {
+      tempL += 1;
+      i += 1;
+      if(tempL > maxL) {
+        maxL = tempL;
+      }
+    }
+    i += 1;
   }
+  return maxL;
+}
 
  
 
@@ -19,9 +32,9 @@ public static int sequenceMax((à compléter)  x) {
     int[] Tab2 = {1,5,2,2,2,7,3,3,3,3};
     int[] Tab3 = {3,1,7,1};
     
-     System.out.println("La plus longue s�quence d��l�ments cons�cutifs �gaux dans Tab1 est : " + sequenceMax(Tab1));
-     System.out.println("La plus longue s�quence d��l�ments cons�cutifs �gaux dans Tab2 est : " + sequenceMax(Tab2));
-     System.out.println("La plus longue s�quence d��l�ments cons�cutifs �gaux dans Tab3 est : " + sequenceMax(Tab3));
+     System.out.println("La plus longue séquence d'éléments consécutifs égaux dans Tab1 est : " + sequenceMax(Tab1));
+     System.out.println("La plus longue séquence d'éléments consécutifs égaux dans Tab2 est : " + sequenceMax(Tab2));
+     System.out.println("La plus longue séquence d'éléments consécutifs égaux dans Tab3 est : " + sequenceMax(Tab3));
      System.out.println();
     }
 
