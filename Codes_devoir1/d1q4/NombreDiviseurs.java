@@ -2,12 +2,23 @@
 
 public class NombreDiviseurs {
  /**
- fonction  qui prend un entier n comme paramètre d'entrée et 
- renvoie le nombre d'éléments qui sont divisibles par n. 
- Si n est négatif (n<0), elle renvoie 0 
+ fonction  qui prend un entier n comme paramï¿½tre d'entrï¿½e et 
+ renvoie le nombre d'ï¿½lï¿½ments qui sont divisibles par n. 
+ Si n est nï¿½gatif (n<0), elle renvoie 0 
  */
    public static int nombreDiviseurs (int n){
     // VOTRE CODE
+    if(n<0) {
+        System.out.println("Votre entier n'est pas positif.");
+        return 0;
+    }
+    int cpt = 0;
+    for(int i = 1 ; i < n ; i++) {
+        if(n%i == 0) {
+                cpt += 1;
+        }
+    }
+    return cpt;
     }
 
     public static void main(String[] args) {

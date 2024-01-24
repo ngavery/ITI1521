@@ -17,6 +17,7 @@ public static int nombreDivisible(int x[], int n) {
     }
     return cpt;
   }
+  //slight difference in output***
 
  
 
