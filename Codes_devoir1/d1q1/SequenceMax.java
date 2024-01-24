@@ -5,13 +5,16 @@ public static int sequenceMax(int x[]) {
      cette focntion prend un tableau de nombres et retourne
      la longueur de la plus longue séquence des éléments consécutive égaux 
      */
-     // VOTRE CODE
   
   int maxL = 1;
   int tempL = 1;
   int i = 0;
+
   while(i < x.length - 1) {
+    //réinitialise tempL après chaque instanciation
     tempL = 1;
+
+    //compte les éléments consécutifs et met cette valeur dans maxL
     while(i < x.length - 1 && x[i] == x[i+1]) {
       tempL += 1;
       i += 1;
@@ -19,6 +22,7 @@ public static int sequenceMax(int x[]) {
         maxL = tempL;
       }
     }
+    //avance dans le tableau
     i += 1;
   }
   return maxL;
