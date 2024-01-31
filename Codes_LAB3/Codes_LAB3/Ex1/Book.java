@@ -1,10 +1,11 @@
 
-/*************************Exercice1 LAB3 ********************************/
+/*************************Question 4 LAB3 ********************************/
 public class Book {
   // Variables
   private String title, author;
   private double price ;
   private boolean fixedPrice = false;
+  private Integer count=0;
 // Le meme Accountant pour tous les livres (static)
   private static Accountant accountant = new Accountant();
 
@@ -49,13 +50,15 @@ public double getPrice() {
 
 public void setPrice(double p) {
     if (fixedPrice ) {
-      VOTRE LIGNE DE CODE VIENT ICI
+      System.err.println("Le prix est fixe !");
     }
     else if (p >= 0.0) {
-      VOTRE MORCEAU DU CODE VIENT ICI
+      price=p;
+      fixedPrice=true;
+      accountant.count(this);
     }
     else {
-      VOTRE LIGNE DE CODE VIENT ICI
+      System.err.println("Erreur : prix négatif !");
     }
   }
 

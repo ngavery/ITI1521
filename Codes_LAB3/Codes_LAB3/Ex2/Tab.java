@@ -1,22 +1,53 @@
-/*Exercice2 LAB3*/
-
 class Tab {
 public static void trier( int [ ] tab ){
-//COMPLÉTER PAR SOLUTION LAB2 
+  int i , j , min , tmp ; 
+  for ( i = 0 ; i < tab.length - 1 ; i++) 
+  {
+  min = i; 
+  for ( j = i + 1 ; j < tab.length ; j++) 
+  { 
+  if (tab[j] <tab[ min ] ) 
+  { 
+  min = j ; 
+  }
+  }
+  tmp = tab[min] ; 
+  tab[min] = tab[ i ] ; 
+  tab [ i ] = tmp ;
+  }
  }
 
 public static int moyenne(int[] tab){
-//COMPLÉTER PAR SOLUTION LAB2 
+   Integer somme = 0;
+  for (int i =0; i<tab.length; i++) 
+  {
+    somme+=tab[i];
+  }
+  int moyenne = somme/tab.length;
+  return moyenne;
 }
 
 public static int count(int[] tab, int val){
-
-        //VOTRE CODE 
+    Integer c=0;
+    for (int i=0; i<tab.length; i++)
+    {
+        if (tab[i]<val)
+        {
+            c+=1;
+        }
+    }
+    return c;
 }
 
-public static void split(int[] tab,int[] petit, int val){ 
-        //VOTRE CODE 
-        
+public static void split(int[] tab,int[] petit, int val)
+{ 
+    Integer index=0;
+    for (int i=0; i<tab.length;i++){
+        if (tab[i]<val){
+            petit[index]=tab[i];
+            index+=1;
+        }
+    }
 }
 
 public static void main (String args [ ] )
