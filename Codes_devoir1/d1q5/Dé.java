@@ -1,68 +1,66 @@
+import java.lang.Math;
+public class DÃ© 
+{
+   private int value;
 
-     public class Dé {
-     
-        private int value;   // Numéro figurant sur le dé. 
+   public DÃ©() 
+   {
+     this.value=(int)((Math.random()*6)+1);
+   }
 
-        /**
-         * Le constructeur crée un dé et le lance de sorte qu'il
-          * montre initialement une valeur aléatoire entre 1 et 6. 
-         */
-        public Dé() {
-            //VOTRE CODE
-        }
+   public void lancer() 
+   {
+      value=(int)((Math.random()*6)+1);
+   }             
+
+   public int getValue() 
+   {
+      return value;
+   }    
+
+   public void setValue( int val ) 
+   {
+      if (val>6)
+      {
+         System.out.println("Valeur iIllegale du De "+val);
+      }
+      value=val;
+   }
         
-        /**
-         * Lancez le dé pour qu'il indique un nombre aléatoire entre 1 et 6. 
-         */
-        public void lancer() {
-           // VOTRE CODE
-        }
-                
-        /**
-         * Renvoie le nombre indiqué sur le dé. 
-         */ 
-        public int getValue() {
-           return value;
-        }
-        
-        /**
-         * Définit la valeur du dé. Imprime Valeur iIllégale du dé
-          * si la valeur n'est pas comprise entre 1 et 6. 
-         */
-        public void setValue( int val ) {
-           //VOTRE CODE
-        }
-        
-   
-     
-//Programme principal main
+   public static void main(String[] args) 
+   {
+      DÃ© de1;
+      de1 = new DÃ©();  
+      DÃ© de2;  
+      de2 = new DÃ©();
+      Integer lances=0;
+
+      while (de1.getValue()==de2.getValue())
+      {
+         de1.lancer();
+         de2.lancer();
+      }
       
-     /** 
-      * lancer deux dés jusqu'à ce qu'ils indiquent la meme valeur 
-      * et afficher le nombre de fois que ces dés ont été lancés. 
-      */
-    
-        public static void main(String[] args) {
+      while (de1.getValue()!=de2.getValue())
+      {
+         de1.lancer();
+         de2.lancer();
+         lances+=1;
+      }
            
-           Dé dé1;  // 1er dé
-           Dé dé2;  // second dé
-           
-           //VOTRE CODE
-           
-           /*Affiche le nombre de lancés. */
-           
-          //VOTRE lIGNE D'AFFICHAGE
+      System.out.println(" a pris "+lances+" lancÃ©s pour que les deux Des indiquent la meme valeur :");
           
-          System.out.println(dé1.getValue());
-          System.out.println(dé2.getValue());
-          System.out.println();
-           
-          /* générer une exception. */
-           System.out.println("Ce programme va maintenant se terminer avec un message d'erreur ");
-           System.out.println("lorsqu'il essaie de fixer la valeur d'un dé à 100. ");
-           Dé dé;  // variable referant au dé.
-           dé = new Dé();  // creer l'objet
-           dé.setValue(100);
-          }
-        
-     }  // end class Dé
+      System.out.println(de1.getValue());
+      System.out.println(de2.getValue());
+      System.out.println();
+
+      System.out.println("Ce programme va maintenant se terminer avec un message d'erreur ");
+      System.out.println("lorsqu'il essaie de fixer la valeur d'un De a 100. ");
+      DÃ© de;  
+      de = new DÃ©();  
+      de.setValue(100);
+      
+   }
+}
+
+     
