@@ -1,24 +1,20 @@
 
 
 public class NombreDiviseurs {
- /**
- fonction  qui prend un entier n comme param�tre d'entr�e et 
- renvoie le nombre d'�l�ments qui sont divisibles par n. 
- Si n est n�gatif (n<0), elle renvoie 0 
- */
-   public static int nombreDiviseurs (int n){
+ 
+   public static int nombreDiviseurs (int n){//methode pour calculer le nombre de diviseur pour un entier positif
     // VOTRE CODE
     if(n<0) {
         System.out.println("Votre entier n'est pas positif.");
         return 0;
     }
     int cpt = 0;
-    for(int i = 1 ; i < n ; i++) {
+    for(int i = 1 ; i < n ; i++) {//parcours tous les entier de 1 a n-1
         if(n%i == 0) {
                 cpt += 1;
         }
     }
-    return cpt;
+    return cpt;// retourne le nombre de diviseurs
     }
 
     public static void main(String[] args) {
@@ -27,11 +23,11 @@ public class NombreDiviseurs {
 
         /* Affichage*/
         System.out.println();
-        System.out.println("Le nombre de diviseurs de " + N1
+        System.out.println("Le nombre de diviseurs de " + N1//imprimer sur une nouvelle ligne
                 + " est " + nombreDiviseurs(N1));
-        System.out.println("Le nombre de diviseurs de " + N2
+        System.out.println("Le nombre de diviseurs de " + N2//imprimer sur une nouvelle ligne
                 + " est " + nombreDiviseurs(N2));
-        System.out.println("Le nombre de diviseurs de " + N3
+        System.out.println("Le nombre de diviseurs de " + N3//imprimer sur une nouvelle ligne
                 + " est " + nombreDiviseurs(N3));
 
     } // end main()

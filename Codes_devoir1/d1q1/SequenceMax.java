@@ -6,9 +6,9 @@ public static int sequenceMax(int x[]) {
      la longueur de la plus longue séquence des éléments consécutive égaux 
      */
   
-  int maxL = 1;
-  int tempL = 1;
-  int i = 0;
+  int maxL = 1;//longueur maximal initial
+  int tempL = 1;//variable initialiser pour lune longueur temporaire pour compter les element consecutifs
+  int i = 0;//index i pour aller a travers le tableau
 
   while(i < x.length - 1) {
     //réinitialise tempL après chaque instanciation
