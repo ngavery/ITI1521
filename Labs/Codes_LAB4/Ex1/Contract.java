@@ -7,21 +7,34 @@ public class Contract extends Employee {
   private static final double dueHour  = 40.0;
 
    Contract(String name) {
-    //VOTRE CODE VIENT ICI
+    super(name);
   }
 
     Contract (String name, double nbHours, double hourRate, double percentHourSup) {
-    //VOTRE CODE VIENT ICI
+    super(name);
+    this.nbHours = nbHours;
+    this.hourRate = hourRate;
+    this.percentHourSup = percentHourSup;
   }
 
   public void setSalaryInfo(double nbHours, double hourRate, double percentHourSup) {
-    //VOTRE CODE VIENT ICI
+    this.nbHours = nbHours;
+    this.hourRate = hourRate; 
+    this.percentHourSup = percentHourSup;
   }
   
    
   public double getSalary() {
-    //VOTRE CODE VIENT ICI
+  if (nbHours <= dueHour) {
+    return hourRate * nbHours;
   }
+  else {
+    double regularSalary = hourRate * dueHour;
+    double overtimeSalary = (nbHours - dueHour) * hourRate * (1 + percentHourSup /100.0);
+    return regularSalary + overtimeSalary; 
+  }
+  }
+    
 
  public double getNbHours() {  
     return nbHours;
