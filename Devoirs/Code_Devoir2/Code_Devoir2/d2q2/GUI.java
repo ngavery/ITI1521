@@ -9,7 +9,28 @@ Calculator  cal;
 JTextField input;
 
 GUI(Calculator p) {
-//VOTRE CODE VIENT ICI
+  add(new JLabel("was good"));
+  input = new JTextField();
+  
+  setTitle("Calculatrice");
+  setSize(400, 600);
+
+  setLayout(null);
+ 
+  //Les boutons
+
+  JButton BoutonPlus = new JButton("+");
+  BoutonPlus.setBounds(10, 50, 50, 50);
+
+  JButton BoutonMOINS = new JButton("-");
+  BoutonMOINS.setBounds(10, 50, 50, 50);
+
+  
+
+  add(BoutonPlus);
+  add(BoutonMOINS);
+
+  
 }
 
 
@@ -17,15 +38,18 @@ GUI(Calculator p) {
 public void actionPerformed(ActionEvent e) {
 //VOTRE CODE VIENT ICI
   
-  /* Exemple:
+  
    String str = e.getActionCommand(); 
-   if (str == "+") { cal.add();}
-  */
+   if (str == "+") { 
+    cal.add();
+  }
+  
 }
 
 public static void main(String arg[]) {
   GUI gui;
   gui = new GUI(new Calculator());
   gui.setVisible(true);
+  
 }
 }

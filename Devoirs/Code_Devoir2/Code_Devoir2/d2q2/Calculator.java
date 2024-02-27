@@ -11,39 +11,50 @@ second = 0; // initialize and get ready for second operand
 oP = str;
 }
 
-void add() { operation("+"); }
-void subtract() { 
-//VOTRE CODE VIENT ICI 
+void add() {
+oP = "+"; }
+void subtract() {
+oP = "-";
 }
 void multiply() {
-// VOTRE CODE VIENT ICI 
+oP = "x";
 }
-void divide() { 
-//VOTRE CODE VIENT ICI 
+void divide() {
+oP = "/";
 }
-void factorial() { 
-//VOTRE CODE VIENT ICI 
-} 
-void pow() { 
-//VOTRE CODE VIENT ICI
-} 
-void rootSquare() { 
-//VOTRE CODE VIENT ICI 
-} 
-void nepLog() { 
-//VOTRE CODE VIENT ICI 
-} 
-
+void factorial() {
+oP = "!";
+}
+void pow() {
+oP = "^";
+}
+void rootSquare() {
+oP = "sqrt";
+}
+void nepLog() {
+oP = "ln";
+}
 
 void compute() {
- 
- //VOTRE CODE VIENT ICI
-/*EXEMPLE : 
+
+
   if (oP == "+")
    second = first + second;
-*/
- 
- } 
+  if (oP == "x")
+    second = first * second;
+  if (oP == "/")
+    second = first / second;
+  if (oP == "!")
+  //first = Math.sqrt(2*Math.PI*first)*((first/Math.E)^(first))*(1+(1/12*first));
+  if (oP == "^")
+    second = Math.pow(first, second);
+  if (oP == "sqrt")
+    first = Math.sqrt(first);
+  if (oP == "ln")
+    first = Math.log(first);
+
+
+ }
   
 void clear() {
 //VOTRE CODE VIENT ICI
