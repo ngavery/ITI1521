@@ -57,11 +57,13 @@ void compute() {
  }
   
 void clear() {
-//VOTRE CODE VIENT ICI
+first = 0;
+second = 0;
+oP = "";
 }
 
 double display() {
-//VOTRE CODE VIENT ICI
+return second;
 }
 
 /*
