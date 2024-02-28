@@ -1,0 +1,7 @@
+À noter :
+Il existe deux implémentations pour l'interface Comparable de la question 2 (sol1 et sol2 ci-joint). 
+Expliquez les deux, montrez-leur qu'avec l'implémentation sol1 le compilateur détecte la situation 
+u1.compareTo( "…" ), ce qui signifie qu'un bug a été détecté avant que le logiciel ne soit envoyé aux utilisateurs,
+ mais que dans le cas sol2, il y a une possibilité que le programme soit envoyé tel quel, et qu'éventuellement, 
+une erreur d'exécution se produise.
+

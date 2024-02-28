@@ -1,78 +1,79 @@
 /**********************Q2-Devoir2 ITI1521*********/
-class Calculator {
-private double first, second; // two calculator operands
-private String oP;  
+public class Calculator {
+  private double operand;
+  private String operation;
 
-Calculator() {};
+  public Calculator() {
+      operand = 0;
+      operation = "";
+  }
 
-void operation(String str) {
-first = second; // keep first operand
-second = 0; // initialize and get ready for second operand
-oP = str;
+  public void setOperand(double value) {
+      operand = value;
+  }
+
+  public void setOperation(String op) {
+      operation = op;
+  }
+
+  public double compute() {
+      switch (operation) {
+          case "+":
+              operand = operand + operand;
+              break;
+          case "-":
+              operand = operand - operand;
+              break;
+          case "x":
+              operand = operand * operand;
+              break;
+          case "/":
+              if (operand != 0) {
+                  operand = operand / operand;
+              } else {
+                  // Handle division by zero
+                  System.out.println("Error: Division by zero");
+              }
+              break;
+          case "!":
+              // Implement factorial logic here
+              operand = calculateFactorial((int) operand);
+              break;
+          case "^":
+              operand = Math.pow(operand, operand);
+              break;
+          case "sqrt":
+              operand = Math.sqrt(operand);
+              break;
+          case "ln":
+              operand = Math.log(operand);
+              break;
+          default:
+              // Handle unknown operation
+              System.out.println("Error: Unknown operation");
+              break;
+      }
+
+      // Reset operation after computation
+      operation = "";
+      return operand;
+  }
+
+  private double calculateFactorial(int n) {
+      if (n == 0 || n == 1) {
+          return 1;
+      } else {
+          return n * calculateFactorial(n - 1);
+      }
+  }
+
+  public void clear() {
+      operand = 0;
+      operation = "";
+  }
+
+  public double display() {
+      return operand;
+  }
 }
-
-void add() {
-oP = "+"; }
-void subtract() {
-oP = "-";
-}
-void multiply() {
-oP = "x";
-}
-void divide() {
-oP = "/";
-}
-void factorial() {
-oP = "!";
-}
-void pow() {
-oP = "^";
-}
-void rootSquare() {
-oP = "sqrt";
-}
-void nepLog() {
-oP = "ln";
-}
-
-void compute() {
-
-
-  if (oP == "+")
-   second = first + second;
-  if (oP == "x")
-    second = first * second;
-  if (oP == "/")
-    second = first / second;
-  if (oP == "!")
-  //first = Math.sqrt(2*Math.PI*first)*((first/Math.E)^(first))*(1+(1/12*first));
-  if (oP == "^")
-    second = Math.pow(first, second);
-  if (oP == "sqrt")
-    first = Math.sqrt(first);
-  if (oP == "ln")
-    first = Math.log(first);
-
-
- }
-  
-void clear() {
-first = 0;
-second = 0;
-oP = "";
-}
-
-double display() {
-return second;
-}
-
-/*
-AUTRES METHODES SI NECESSAIRE
-*/
-
-}
-
-
-
-
 
