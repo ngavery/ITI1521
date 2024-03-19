@@ -12,7 +12,15 @@ public class Deck {
      * are in a sorted order.  
      */
     public Deck() {
-        //VOTRE CODE VIENT ICI
+        deck = new Card[52];
+        int CardCount = 0;
+        for(int color = 0; color <= 3; color++) {
+            for(int value = 1; value <= 13; value++) {
+            deck[CardCount] = new Card(value, color);
+            CardCount++;
+            }
+        }
+        number = 0;
  }
 
 
@@ -21,14 +29,18 @@ public class Deck {
      * shuffle the deck into a random order.
      */
     public void shuffle() {
-        //VOTRE CODE VIENT ICI
+        for(int i = 0; i < deck.length - 1; i++) {
+            int rand = (int)(Math.random()*(i+1));
+            deck[rand] = deck[i];
+        }
+        number = 0;
     }
 
     /**
      * Returns the number of cards left in the deck.  
      */
     public int numberLeft() {
-        //VOTRE CODE VIENT ICI
+        return deck.length;
     }
 
     /**
@@ -39,6 +51,9 @@ public class Deck {
      * @throws IllegalStateException if there are no cards left in the deck
      */
     public Card take() {
-        //VOTRE CODE VIENT ICI
+        if(deck.length == number) {
+            throw new IllegalStateException("No more cards left in the deck.");}
+        number++;
+        return deck[number - 1];
     }
 } // end class Deck
