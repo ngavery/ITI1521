@@ -93,31 +93,31 @@ public class Player {
      * Computes and returns the total value of this hand in the game
      */
     public int getHandTotal () {
-        int numAce = 0;
-        int totalValue = 0;
+        int nbrAce = 0;
+        int ValeurTotal = 0;
         for(int i=0;i<hand.size();i++){
             Card card = (Card)hand.get(i);
             if(card.getValue() > 1 && card.getValue() < 10){
-                totalValue += card.getValue();
+                ValeurTotal += card.getValue();
             }
             else if(card.getValue()==1){
-                totalValue += card.getValue();
-                numAce++;
+                ValeurTotal += card.getValue();
+                nbrAce++;
             }
             else if(card.getValue() > 10){
-                totalValue+=10;
+                ValeurTotal+=10;
             }
             }
-            while(numAce > 0){
-                if((totalValue+10) <=21){
-                    totalValue +=10;
-                    numAce--;
+            while(nbrAce > 0){
+                if((ValeurTotal+10) <=21){
+                    ValeurTotal +=10;
+                    nbrAce--;
                 }
                 else
                 {
                     break;
                 } 
-                return totalValue; 
+                return ValeurTotal; 
             }
 
         //VOTRE CODE VIENT ICI
