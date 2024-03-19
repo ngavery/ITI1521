@@ -117,8 +117,8 @@ public class Player {
                 {
                     break;
                 } 
-                return ValeurTotal; 
             }
+            return ValeurTotal; 
 
         //VOTRE CODE VIENT ICI
 
