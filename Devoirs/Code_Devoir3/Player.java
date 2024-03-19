@@ -10,19 +10,19 @@ public class Player {
  
      /*Constructor*/
  Player(){
-       //VOTRE CODE VIENT ICI
+       hand = new ArrayList<>();
     }  
  
  /*Accessor*/
  public ArrayList<Card> getHand() {
-        //VOTRE CODE VIENT ICI
+        return hand;
     }
  
  /**
      * Remove all cards from the hand, leaving it empty.
   */
     public void clear() {
-       //VOTRE CODE VIENT ICI
+       hand.clear();
     }
 
     /**
@@ -31,7 +31,10 @@ public class Player {
      * @throws NullPointerException if the parameter card is null.
      */
     public void add(Card card) {
-        //VOTRE CODE VIENT ICI
+        if(card == null)
+            throw new NullPointerException();
+        hand.add(card);
+
     }
 
     /**
@@ -40,7 +43,15 @@ public class Player {
      * the hand, then nothing is done.
      */
     public void remove(Card card) {
-        //VOTRE CODE VIENT ICI
+        if(card!=null){
+            for(int j=0;j<hand.size();j++){
+                Card presenter = (Card)hand.get(j);
+                if(presenter.getValue() == card.getValue() && presenter.getColor() == card.getColor()){
+                    hand.remove(j);
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -52,14 +63,17 @@ public class Player {
      * or equal to the number of cards in the hand.
      */
     public void remove(int position) {
-        VOTRE CODE VIENT ICI
+        if(position >=0 && position < hand.size())
+        hand.remove(position);
+        else
+        throw new IllegalArgumentException();
     }
 
     /**
      * Returns the number of cards in the hand.
      */
     public int totalCards() {
-        //VOTRE CODE VIENT ICI
+        return hand.size();
     }
 
     /**
@@ -69,13 +83,42 @@ public class Player {
      * @throws IllegalArgumentException if position does not exist in the hand
      */
     public Card getCard(int position) {
-        //VOTRE CODE VIENT ICI
-    }
+        if(position >= 0 && position < hand.size())
+            return (Card)hand.get(position);
+        else
+        throw new IllegalArgumentException();
+        }
 
    /**
      * Computes and returns the total value of this hand in the game
      */
     public int getHandTotal () {
+        int numAce = 0;
+        int totalValue = 0;
+        for(int i=0;i<hand.size();i++){
+            Card card = (Card)hand.get(i);
+            if(card.getValue() > 1 && card.getValue() < 10){
+                totalValue += card.getValue();
+            }
+            else if(card.getValue()==1){
+                totalValue += card.getValue();
+                numAce++;
+            }
+            else if(card.getValue() > 10){
+                totalValue+=10;
+            }
+            }
+            while(numAce > 0){
+                if((totalValue+10) <=21){
+                    totalValue +=10;
+                    numAce--;
+                }
+                else
+                {
+                    break;
+                } 
+                return totalValue; 
+            }
 
         //VOTRE CODE VIENT ICI
 
@@ -87,7 +130,18 @@ public class Player {
      * Note that aces are considered to have the lowest value, 1.
      */
     public void sortByColor() {
-        //VOTRE CODE VIENT ICI
+        for(int i=0;i<hand.size()-1;i++){
+            for(int j=0;j<hand.size()-1;j++){
+                Card presenter = (Card)hand.get(j);
+                Card next = (Card)hand.get(j+1);
+
+                if((presenter.getcolor()> next.getColor()) || ((presenter.getcolor()==next.getcolor()) && (presenter.getValue()> next.getValue()))){
+                    hand.set(j, hand.get(j+1));
+                    hand.set(j+1, presenter);
+                }
+
+            }
+        }
     }
 
     /**
@@ -96,6 +150,16 @@ public class Player {
      * Note that aces are considered to have the lowest value, 1.
      */
     public void sortByValue() {
-        //VOTRE CODE VIENT ICI
+        for(int i=0;i<hand.size()-1;i++);{
+            for (int j=0;j<hand.size()-1;j++){
+                Card presenter = (Card)hand.get(j);
+                Card next = (Card)hand.get(j+1);
+                if((presenter.getValue() > next.getValue())|| ((presenter.getValue()==next.getValue())&&(presenter.getcolor()> next.getColor()))){
+                    hand.set(j, hand.get(j+1));
+                    hand.set(j+1,presenter);
+                }
+
+            }
+        }
     }
 } 
