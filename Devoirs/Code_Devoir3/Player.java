@@ -34,7 +34,6 @@ public class Player {
         if(card == null)
             throw new NullPointerException();
         hand.add(card);
-
     }
 
     /**
@@ -119,9 +118,6 @@ public class Player {
                 } 
             }
             return ValeurTotal; 
-
-        //VOTRE CODE VIENT ICI
-
     }  
     
     /**
@@ -135,7 +131,7 @@ public class Player {
                 Card presenter = (Card)hand.get(j);
                 Card next = (Card)hand.get(j+1);
 
-                if((presenter.getcolor()> next.getColor()) || ((presenter.getcolor()==next.getcolor()) && (presenter.getValue()> next.getValue()))){
+                if((presenter.getColor()> next.getColor()) || ((presenter.getColor()==next.getColor()) && (presenter.getValue()> next.getValue()))){
                     hand.set(j, hand.get(j+1));
                     hand.set(j+1, presenter);
                 }
@@ -154,7 +150,7 @@ public class Player {
             for (int j=0;j<hand.size()-1;j++){
                 Card presenter = (Card)hand.get(j);
                 Card next = (Card)hand.get(j+1);
-                if((presenter.getValue() > next.getValue())|| ((presenter.getValue()==next.getValue())&&(presenter.getcolor()> next.getColor()))){
+                if((presenter.getValue() > next.getValue())|| ((presenter.getValue()==next.getValue())&&(presenter.getColor()> next.getColor()))){
                     hand.set(j, hand.get(j+1));
                     hand.set(j+1,presenter);
                 }
