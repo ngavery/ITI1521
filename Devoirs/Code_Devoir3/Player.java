@@ -94,16 +94,17 @@ public class Player {
     public int getHandTotal () {
         int nbrAce = 0;
         int ValeurTotal = 0;
+        // Parcours des cartes dans la liste 'hand'
         for(int i=0;i<hand.size();i++){
             Card card = (Card)hand.get(i);
             if(card.getValue() > 1 && card.getValue() < 10){
                 ValeurTotal += card.getValue();
             }
-            else if(card.getValue()==1){
+            else if(card.getValue()==1){// Si la carte est un a's mais specifiquement avec une valeur de 1, ajoutez 1 à la valeur totale et incrémente le compteur d'as
                 ValeurTotal += card.getValue();
                 nbrAce++;
             }
-            else if(card.getValue() > 10){
+            else if(card.getValue() > 10){// Si la valeur de la carte est supérieure à 10 ajoutez 10 à la valeur totale
                 ValeurTotal+=10;
             }
             }
@@ -130,9 +131,10 @@ public class Player {
             for(int j=0;j<hand.size()-1;j++){
                 Card presenter = (Card)hand.get(j);
                 Card next = (Card)hand.get(j+1);
+                 // Comparaison des couleurs et des valeurs des cartes
 
                 if((presenter.getColor()> next.getColor()) || ((presenter.getColor()==next.getColor()) && (presenter.getValue()> next.getValue()))){
-                    hand.set(j, hand.get(j+1));
+                    hand.set(j, hand.get(j+1));// Échange des positions de la carte 'presenter' et de la carte 'next' dans la liste
                     hand.set(j+1, presenter);
                 }
 
@@ -147,13 +149,16 @@ public class Player {
      */
     public void sortByValue() {
         for(int i=0;i<hand.size()-1;i++);{
+            // Boucle  pour comparer les éléments adjacents
             for (int j=0;j<hand.size()-1;j++){
                 Card presenter = (Card)hand.get(j);
                 Card next = (Card)hand.get(j+1);
+                // Comparaison des valeurs et des couleurs des cartes
                 if((presenter.getValue() > next.getValue())|| ((presenter.getValue()==next.getValue())&&(presenter.getColor()> next.getColor()))){
                     hand.set(j, hand.get(j+1));
                     hand.set(j+1,presenter);
                 }
+                
 
             }
         }
