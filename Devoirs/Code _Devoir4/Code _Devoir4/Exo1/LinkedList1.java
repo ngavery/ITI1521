@@ -28,7 +28,7 @@ public class LinkedList1 {
     public boolean find(String obj) {
     Node current = head;
     while(current != null) { //Tant que la liste n'est pas vide...
-        if (obj.equals(current.value())) { //On compare les valeur de obj et head.
+        if (current.value.equals(obj)) { //On compare les valeur de obj et head.
             return true;
         }
         current = current.next; //On traverse la liste.
@@ -106,7 +106,7 @@ public class LinkedList1 {
         int counter = 0;
         Node current = head;
 
-        while (current.next != null) {
+        while (current != null) {
             current = current.next;
             counter++;
         }
@@ -118,16 +118,16 @@ public class LinkedList1 {
         */
         
         current = head; //Réinitialise "current".
-        String[] list = new String[counter]; //Déclare une nouvelle liste avec la bonne taille.
+        elements = new String[counter];
         int index = 0;
 
-        while (current.next != null) {
-            list[index] = current.value; //Assigne les valeurs des noeuds aux bonnes positions.
+        while (current != null) {
+            elements[index] = current.value; //Assigne les valeurs des noeuds aux bonnes positions.
             current = current.next;
             index++;
         }
 
-        return list;
+        return elements;
 
     } // end of getList()
 
