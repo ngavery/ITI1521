@@ -16,9 +16,22 @@ public class LinkedList2 {
     static Node reverse( Node obj ) {
       Node reverse = null;     // reverse will be the reversed list.
       Node p = obj;       // going through the nodes of list.
-      
-      //VOTRE CODE VIENT ICI
-      
+      Node prev=null,next=null;
+      while(p!=null){
+         Node current = new Node();
+         current.value=p.value;//copier la valeur de node a la methode reverse node
+         current.next=reverse;//pointer le reverse node au head present
+         reverse=current;//faire le reversed node le nouveau head de la liste reverse
+         p=p.next;//bouger au prochain node dans la liste initial
+      }
+      while (reverse != null) {
+         next = reverse.next;//guarder the next node dans la liste reverser
+         reverse.next = prev;//reverser le pointeur next pour pointer au node precedant
+         prev = reverse;//bouger le pointeur precedant au node present
+         reverse = next;//bouger au prochain node dans la liste reverser
+      }
+      reverse = prev;
+      return reverse;
    } // end of reverse()
    
    
@@ -27,24 +40,73 @@ public class LinkedList2 {
     * They are printed on one line, separated by spaces 
     */
     static void display(Node first) {
-       //VOTRE CODE VIENT ICI
-   } // end of display()
-   
+      Node p; // For traversing the list.
+      p = first;
+      while(p!=null)//traversr jusqua temp que la fin de la liste est atteinte
+      {
+         System.out.print(p.value+" ");//afficher lavaleur du node present
+         p=p.next;//bouger au prochain node dans la liste
+      }
+      }
    /**
     * Return the number of zeros that occur in a given linked list of int.
     */
- static int count( Node head ) {
-    //VOTRE CODE VIENT ICI
-}// end of count()
-
+ static int count( Node head ) {//
+   int count_zeros=0;//initialissons le compte de 0
+   while(head!=null)//traverse la liste jusqua temp quon arrive a la fin
+   {
+   if(head.value==0)//verifions si la valeur du node present est 0
+   {
+   count_zeros++;//incrementons
+   }else{
+   int num=head.value;//chechons la valeur du node
+   String st=Integer.toString(num);//faisons une conversion a string
+   int len=st.length();//cherchons la longueur du string
+   while(len-->0)
+   {
+   int d=num%10;//chrchons le dernier chiffre
+   num=num/10;//enlevon le dernier chiffre
+   if(d==0)
+   {
+   count_zeros++;
+   }
+   }
+   }
+   head=head.next;
+   }
+   return count_zeros;
+   }
  /**
     * Return the number of zeros that occur in a given linked list of int.
     * Uses recursion 
     */
  static int countRecursive( Node head ) {
-      //VOTRE CODE VIENT ICI
+   if(head==null)//fin de la liste est atteinte
+{
+   return 0;
+}
+if(head.value==0)
+{
+   return (1+countRecursive (head.next));//incrementons count par 1 
+}
+return (zeros_count(head.value)+countRecursive(head.next));
 } // end of countRecursive()
-      
+   public static int zeros_count(int num)
+{
+      String st=Integer.toString(num);//convertissons le nombre a un string
+      int len=st.length();//cherchons la longueur du string
+      int count=0;//intializons count a 0
+      while(len-->0)//pass a travers chaque chiffre
+      {
+         int d=num%10;//cherchons le dernier chiffre
+         num=num/10;//enlevons le dernier chiffre
+         if(d==0)
+         {
+         count++;//incrementons
+         }
+         }
+         return count;
+}
    public static void main(String[] args) {
    
       Node list = null;   // A list, initially empty.
@@ -65,18 +127,18 @@ public class LinkedList2 {
           
         // Print the current list ; its reverse 
        // and the number of zeros in the list using both count methods
-          System.out.print("The list: ");
-          display(list);
-          System.out.println();
-          reverseList = reverse(list);
-          System.out.print("The reversed list: ");
-          display(reverseList);
-          System.out.println();
-          System.out.println();
-          System.out.print("The number of zeros in the list : ");
-          System.out.println(count(list));
-          System.out.print("The number of zeros in the list, using recursion : ");
-          System.out.println(countRecursive(list));
+         System.out.print("The list: ");
+         display(list);
+         System.out.println();
+         reverseList = reverse(list);
+         System.out.print("The reversed list: ");
+         display(reverseList);
+         System.out.println();
+         System.out.println();
+         System.out.print("The number of zeros in the list : ");
+         System.out.println(count(list));
+         System.out.print("The number of zeros in the list, using recursion : ");
+         System.out.println(countRecursive(list));
       
    } // end main()
    
