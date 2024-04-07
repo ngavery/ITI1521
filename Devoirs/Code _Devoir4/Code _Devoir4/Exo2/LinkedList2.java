@@ -62,12 +62,10 @@ public class LinkedList2 {
    int num=head.value;//chechons la valeur du node
    String st=Integer.toString(num);//faisons une conversion a string
    int len=st.length();//cherchons la longueur du string
-   while(len-->0)
-   {
+   while(len-->0){
    int d=num%10;//chrchons le dernier chiffre
    num=num/10;//enlevon le dernier chiffre
-   if(d==0)
-   {
+   if(d==0){
    count_zeros++;
    }
    }
@@ -93,19 +91,17 @@ return (zeros_count(head.value)+countRecursive(head.next));
 } // end of countRecursive()
    public static int zeros_count(int num)
 {
-      String st=Integer.toString(num);//convertissons le nombre a un string
-      int len=st.length();//cherchons la longueur du string
-      int count=0;//intializons count a 0
-      while(len-->0)//pass a travers chaque chiffre
-      {
-         int d=num%10;//cherchons le dernier chiffre
-         num=num/10;//enlevons le dernier chiffre
-         if(d==0)
-         {
-         count++;//incrementons
-         }
-         }
-         return count;
+   String st=Integer.toString(num);//convertissons le nombre a un string
+   int len=st.length();//cherchons la longueur du string
+   int count=0;//intializons count a 0
+   while(len-->0){//pass a travers chaque chiffre
+      int d=num%10;//cherchons le dernier chiffre
+      num=num/10;//enlevons le dernier chiffre
+      if(d==0){
+      count++;//incrementons
+      }
+      }
+      return count;
 }
    public static void main(String[] args) {
    
@@ -115,14 +111,14 @@ return (zeros_count(head.value)+countRecursive(head.next));
       int count = 0;  //The number of elements in the list
       
       while (true) {
-             // add a new node onto the head of the list before repeating.      
+         // add a new node onto the head of the list before repeating.      
           count++;
           if (count == 10)
-             break;
-          Node head = new Node();  // A new node to add to the list.
-          head.value = (int)(Math.random()*100);  // A random item.
-          head.next = list;
-          list = head;
+            break;
+         Node head = new Node();  // A new node to add to the list.
+         head.value = (int)(Math.random()*100);  // A random item.
+         head.next = list;
+         list = head;
       }
           
         // Print the current list ; its reverse 
