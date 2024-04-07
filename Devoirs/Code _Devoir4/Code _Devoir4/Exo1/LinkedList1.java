@@ -28,7 +28,7 @@ public class LinkedList1 {
     public boolean find(String obj) {
     Node current = head;
     while(current != null) { //Tant que la liste n'est pas vide...
-        if (current.value.equals(obj)) { //On compare les valeur de obj et head.
+        if (obj.equals(current.value)) { //On compare les valeur de obj et head.
             return true;
         }
         current = current.next; //On traverse la liste.
