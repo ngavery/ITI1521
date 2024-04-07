@@ -26,8 +26,14 @@ public class LinkedList1 {
      * @return true if searchItem is one of the items in the list or false if not
      */
     public boolean find(String obj) {
-
-        //VOTRE CODE VIENT ICI
+    Node current = head;
+    while(current != null) { //Tant que la liste n'est pas vide...
+        if (obj.equals(current.value())) { //On compare les valeur de obj et head.
+            return true;
+        }
+        current = current.next; //On traverse la liste.
+    }
+       return false;
 
     } // end of find()
 
@@ -36,15 +42,28 @@ public class LinkedList1 {
      * Remove a specified item from the list, if that item is present.
      */
     public boolean remove(String obj) {
-
-        if ( head == null ) {
-                // The list is empty.
-       // VOTRE PREMIER MORCEAU DU CODE VIENT ICI 
-        }
-         
-       // VOTRE DEUXIEME MORCEAU DU VIENT ICI
+        Node current = head; //On initialise "current" pour maintenir la structure de la liste lorsqu'on y traverse.
         
+        if (head == null) { //Si la liste est vide...
+            return false;
+        }
+        if (head.value.equals(obj)) {  //Si le premier noeud a la valeur spécifiée...
+            head = head.next;
+            return true;
+        }
 
+        else { 
+            while (current!=null) {
+                if (current.next.value.equals(obj)) { //Si le prochain noeud a la valeur spécifiée...
+                    current.next = current.next.next; //On saute ce noeud.
+                    return true;
+                }
+                else {
+                    current = current.next; //Si non, on continue à traverser la liste.
+                }
+        }
+        return false; //La valeur spécifiée n'a pas été retrouvée.
+        }
     } // end of remove()
 
 
@@ -60,13 +79,17 @@ public class LinkedList1 {
 
         if ( head == null ) {
                 // The new item is the first (and only) one in the list.
-       // VOTRE PREMIER MORCEAU DU CODE VIENT ICI 
+            head = newNode; //Si la liste est vide, le nouveau noeud est ajouté.
+            return; //On arrête l'exécution de la méthode
         }
         
-       // VOTRE DEUXIEME MORCEAU DU CODE VIENT ICI
-        
-        
+        Node current = head;
+        while (current.next != null) { 
+            current = current.next; //On traverse la liste.
+        }
 
+        current.next = newNode; //On ajoute le nouveau noeud une fois que la liste est entièrement traversée.
+            
     }  // end of add()
 
 
@@ -80,9 +103,13 @@ public class LinkedList1 {
         /* First, go through the list and count the number
          * of elements that it contains.
          */ 
-        
-       // VOTRE PREMIER MORCEAU DU CODE VIENT ICI
-       
+        int counter = 0;
+        Node current = head;
+
+        while (current.next != null) {
+            current = current.next;
+            counter++;
+        }
 
         /*
          * Create an array just large enough to hold all the
@@ -90,7 +117,17 @@ public class LinkedList1 {
          * fill the array with elements from the list.
         */
         
-        //VOTRE DEUXIEME MORCEAU DU CODE VIENT ICI
+        current = head; //Réinitialise "current".
+        String[] list = new String[counter]; //Déclare une nouvelle liste avec la bonne taille.
+        int index = 0;
+
+        while (current.next != null) {
+            list[index] = current.value; //Assigne les valeurs des noeuds aux bonnes positions.
+            current = current.next;
+            index++;
+        }
+
+        return list;
 
     } // end of getList()
 
