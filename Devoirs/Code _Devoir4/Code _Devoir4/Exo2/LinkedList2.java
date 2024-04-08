@@ -15,7 +15,7 @@ public class LinkedList2 {
     */
    static Node reverse( Node obj ) {//reverse le linked list en creeant un nouveau
       Node p = obj;
-      Node reverse = null;
+      Node reverse = null;//creee une nouvelle varaible node en appelant reverse
       while(p!=null) {
     	  Node newNode = new Node();
     	  newNode.value =p.value;
@@ -42,7 +42,7 @@ public class LinkedList2 {
    /**
     * Return the number of zeros that occur in a given linked list of int.
     */
- static int count( Node head ) {
+ static int count( Node head ) {//incremente count lorsque une valeur de node avec 0 est apparue
    int count = 0;
     Node p = head;
     while (head!= null) {
@@ -58,7 +58,7 @@ public class LinkedList2 {
    * Return the number of zeros that occur in a given linked list of int.
    * Uses recursion 
    */
-static int countRecursive( Node head ) {
+static int countRecursive( Node head ) {//on verifie si le node present est null, si non on incremente le count si la valeur du null est 0
    if (head == null) {
       return 0;
    }
