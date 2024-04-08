@@ -126,24 +126,26 @@ public class LinkedList<E> {
         // VOTRE CODE VIENT ICI
         LinkedList<E> removedElements = new LinkedList<>();
 
+        //Gérer les cas qui ne fonctionnent pas 
         if (fromIndex < 0 || fromIndex >= size || toIndex < 0 || toIndex >= size || fromIndex > toIndex) {
-            throw new IndexOutOfBoundsException("Invalid indices");
+            throw new IndexOutOfBoundsException("Invalid indexes");
         }
 
-        Node<E> prev = head;
+        //
+        Node<E> previous = head;
         Node<E> current = head.next;
 
-        // Traverse to the node at fromIndex
+        //On traverse la liste jusqu'à temps que current prend la valeur de fromIndex
         for (int i = 0; i < fromIndex; i++) {
-            prev = current;
+            previous = current;
             current = current.next;
         }
 
-        // Remove nodes from fromIndex to toIndex
+        //On enlève les éléments de fromIndex jusqu'à toIndex
         for (int i = fromIndex; i <= toIndex; i++) {
             removedElements.addLast(current.value);
-            prev.next = current.next;
-            current.next.previous = prev;
+            previous.next = current.next; //On saute l'élément actuel (current)
+            current.next.previous = previous;
             current = current.next;
             size--;
         }

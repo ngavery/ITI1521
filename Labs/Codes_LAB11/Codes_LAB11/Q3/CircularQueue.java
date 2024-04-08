@@ -18,7 +18,7 @@ size = 0;
      private int count = 0;
      
      public E next() {
-    //S'il n'y a plus d'élément à itérer sur (on a déjà traversé toute la liste auparavant).
+    //S'il n'y a plus d'éléments à itérer sur (si on a déjà traversé toute la liste auparavant).
       if (!hasNext()) {
       throw new NoSuchElementException(); 
       }
