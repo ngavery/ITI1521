@@ -77,7 +77,7 @@ public class LinkedList1 {
         newNode = new Node();
         newNode.value = obj;  // newNode.next is null.
 
-        if ( head == null ) {
+        if (head == null) {
                 // The new item is the first (and only) one in the list.
             head = newNode; //Si la liste est vide, le nouveau noeud est ajouté.
             return; //On arrête l'exécution de la méthode
@@ -118,11 +118,11 @@ public class LinkedList1 {
         */
         
         current = head; //Réinitialise "current".
-        elements = new String[counter];
+        elements = new String[counter]; //On définit la taille de la liste selon "counter" (nombre de noeuds)
         int index = 0;
 
         while (current != null) {
-            elements[index] = current.value; //Assigne les valeurs des noeuds aux bonnes positions.
+            elements[index] = current.value; //On traverse la liste et assigne les valeurs des noeuds aux bonnes positions.
             current = current.next;
             index++;
         }
