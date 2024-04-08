@@ -14,9 +14,9 @@ public class LinkedList2 {
     * but in the reverse order.
     */
    static Node reverse( Node head ) {
+   Node current = head;//initialiser un pointeur au node present
    Node prev = null;//initialiser un pointeur au node precedant
-   Node current = head;
-   Node next = null;
+   Node next = null;//initialisons un poninteur au prochain node
    while (current != null) {//Traverson jusqua la fin de la liste
       next = current.next;//guardons le prochain node du node present avant de changer le pointeur
       current.next = prev; //reversons le prochain pointeur au node present
