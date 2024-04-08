@@ -13,18 +13,19 @@ public class LinkedList2 {
     * Return a new list containing the same items as the list,
     * but in the reverse order.
     */
-   static Node reverse( Node head ) {
-   Node current = head;//initialiser un pointeur au node present
-   Node prev = null;//initialiser un pointeur au node precedant
-   Node next = null;//initialisons un poninteur au prochain node
-   while (current != null) {//Traverson jusqua la fin de la liste
-      next = current.next;//guardons le prochain node du node present avant de changer le pointeur
-      current.next = prev; //reversons le prochain pointeur au node present
-      prev = current;//bouger le pointeur precedant au node present     
-      current = next;//bouger le pointeur present au prochain node
-   }
-    return prev; // Return the new head of the reversed list
-}
+   static Node reverse( Node obj ) {//reverse le linked list en creeant un nouveau
+      Node p = obj;
+      Node reverse = null;
+      while(p!=null) {
+    	  Node newNode = new Node();
+    	  newNode.value =p.value;
+    	  newNode.next = reverse;
+    	  reverse = newNode;
+    	  p = p.next;
+      }
+     return reverse;
+     
+   } // end of reverse()
    /**
     * Displays the items in the list to which the parameter, first, points.
     * They are printed on one line, separated by spaces 
@@ -41,58 +42,37 @@ public class LinkedList2 {
    /**
     * Return the number of zeros that occur in a given linked list of int.
     */
- static int count( Node head ) {//
-   int count_zeros=0;//initialissons le compte de 0
-   while(head!=null)//traverse la liste jusqua temp quon arrive a la fin
-   {
-   if(head.value==0)//verifions si la valeur du node present est 0
-   {
-   count_zeros++;//incrementons
-   }else{
-   int num=head.value;//chechons la valeur du node
-   String st=Integer.toString(num);//faisons une conversion a string
-   int len=st.length();//cherchons la longueur du string
-   while(len-->0){
-   int d=num%10;//chrchons le dernier chiffre
-   num=num/10;//enlevon le dernier chiffre
-   if(d==0){
-   count_zeros++;
+ static int count( Node head ) {
+   int count = 0;
+    Node p = head;
+    while (head!= null) {
+    	if(head.value == 0) {
+    		count ++;
+    	}
+    	head = head.next;
+    }
+    return count;
+}// end of count()
+
+/**
+   * Return the number of zeros that occur in a given linked list of int.
+   * Uses recursion 
+   */
+static int countRecursive( Node head ) {
+   if (head == null) {
+      return 0;
    }
+   if (head.value== 0) {
+      return 1+countRecursive(head.next);
    }
-   }
-   head=head.next;
-   }
-   return count_zeros;
-   }
+   return countRecursive(head.next);
+} // end of countRecursive()
+   
  /**
     * Return the number of zeros that occur in a given linked list of int.
     * Uses recursion 
     */
- static int countRecursive( Node head ) {
-   if(head==null)//fin de la liste est atteinte
-{
-   return 0;
-}
-if(head.value==0)
-{
-   return (1+countRecursive (head.next));//incrementons count par 1 
-}
-return (zeros_count(head.value)+countRecursive(head.next));
-} // end of countRecursive()
-   public static int zeros_count(int num)
-{
-   String st=Integer.toString(num);//convertissons le nombre a un string
-   int len=st.length();//cherchons la longueur du string
-   int count=0;//intializons count a 0
-   while(len-->0){//pass a travers chaque chiffre
-      int d=num%10;//cherchons le dernier chiffre
-      num=num/10;//enlevons le dernier chiffre
-      if(d==0){
-      count++;//incrementons
-      }
-      }
-      return count;
-}
+   
    public static void main(String[] args) {
    
       Node list = null;   // A list, initially empty.
@@ -111,8 +91,8 @@ return (zeros_count(head.value)+countRecursive(head.next));
          list = head;
       }
           
-        // Print the current list ; its reverse 
-       // and the number of zeros in the list using both count methods
+         // Print the current list ; its reverse 
+         // and the number of zeros in the list using both count methods
          System.out.print("The list: ");
          display(list);
          System.out.println();
