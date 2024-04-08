@@ -13,28 +13,18 @@ public class LinkedList2 {
     * Return a new list containing the same items as the list,
     * but in the reverse order.
     */
-    static Node reverse( Node obj ) {
-      Node reverse = null;     // reverse will be the reversed list.
-      Node p = obj;       // going through the nodes of list.
-      Node prev=null,next=null;
-      while(p!=null){
-         Node current = new Node();
-         current.value=p.value;//copier la valeur de node a la methode reverse node
-         current.next=reverse;//pointer le reverse node au head present
-         reverse=current;//faire le reversed node le nouveau head de la liste reverse
-         p=p.next;//bouger au prochain node dans la liste initial
-      }
-      while (reverse != null) {
-         next = reverse.next;//guarder the next node dans la liste reverser
-         reverse.next = prev;//reverser le pointeur next pour pointer au node precedant
-         prev = reverse;//bouger le pointeur precedant au node present
-         reverse = next;//bouger au prochain node dans la liste reverser
-      }
-      reverse = prev;
-      return reverse;
-   } // end of reverse()
-   
-   
+   static Node reverse( Node head ) {
+   Node prev = null;//initialiser un pointeur au node precedant
+   Node current = head;
+   Node next = null;
+   while (current != null) {//Traverson jusqua la fin de la liste
+      next = current.next;//guardons le prochain node du node present avant de changer le pointeur
+      current.next = prev; //reversons le prochain pointeur au node present
+      prev = current;//bouger le pointeur precedant au node present     
+      current = next;//bouger le pointeur present au prochain node
+   }
+    return prev; // Return the new head of the reversed list
+}
    /**
     * Displays the items in the list to which the parameter, first, points.
     * They are printed on one line, separated by spaces 

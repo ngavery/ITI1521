@@ -85,6 +85,7 @@ public class LinkedList1 {
         
         Node current = head;
         while (current.next != null) { 
+           
             current = current.next; //On traverse la liste.
         }
 
@@ -98,6 +99,7 @@ public class LinkedList1 {
      * If the list is empty, the return value is an array of length zero.
      */
     public String[] getList() {
+        
          String[] elements;  // An array to hold the list elements.
 
         /* First, go through the list and count the number
