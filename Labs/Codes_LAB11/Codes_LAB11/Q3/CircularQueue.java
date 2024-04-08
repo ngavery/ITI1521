@@ -15,20 +15,21 @@ size = 0;
 
  private class CircularQueueIterator implements Iterator<E> {
      private int current = front;
-     private int compte = 0;
+     private int count = 0;
      
      public E next() {
+    //S'il n'y a plus d'élément à itérer sur (on a déjà traversé toute la liste auparavant).
       if (!hasNext()) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException(); 
       }
       E element = elems[current];
-      current = (current + 1) % elems.length;
-      compte++;
+      current = (current + 1) % elems.length; //Incrément au prochain élément, retourne au début si on atteint le dernier élément.
+      count++;
       return element;
      }
      
      public boolean hasNext() {
-        return compte < size;
+        return count < size; //Retourne true si on n'a pas traversé toute la liste (alors l'élément actuel a un prochain).
         }
      }
  // End of CircularQueueIterator

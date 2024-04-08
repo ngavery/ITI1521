@@ -125,9 +125,37 @@ public class LinkedList<E> {
      * remove instance method 
      */
     public LinkedList<E> remove( int fromIndex, int toIndex ) {
-    // VOTRE CODE VIENT ICI
-
-    } // End of remove
+        Node<E> current = head;
+    
+    
+        for (int i =0; i < fromIndex ; i++) {
+            current = current.next;
+        }
+        Node<E> node1 = current;
+    
+    
+        for (int i =0; i < toIndex ; i++) {
+            current = current.next;
+        }
+        Node<E> node2 = current;
+    
+    
+        if (node1.previous != null) {
+            node1.previous.next = node2.next;
+        } else {
+            head = node2.next;
+        }
+        if (node2.next != null) {
+            node2.next.previous = node1.previous;
+        } else {
+            head.previous = node1.previous;
+        }
+    
+    
+        return this;
+    
+    
+        } // End of remove
 
    
     //  toString instance method
