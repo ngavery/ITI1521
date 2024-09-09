@@ -1,0 +1,37 @@
+Apparence générale
+-----------------------------------------------------------------------------------------------------------
+L'aspect général devrait être minimaliste et plat. Le site Web doit être calme pour l'utilisateur.
+
+
+Couleurs
+-----------------------------------------------------------------------------------------------------------
+Les couleurs révèlent notre personnalité aux clients et représentent le fait que nous sommes calmes et agréables. Ceux-ci sont nos échantillons de couleurs:
+-	#027bcc
+-	#00747C
+-	#00BBC9
+-	#CACACA
+-	#878787
+-	#FFFFF
+
+
+Iconographie
+----------------------------------------------------------------------------------------------------------
+Nous nous concentrerons sur l’utilisation d’icônes au design «plat», qui respectent l’aspect général.
+
+
+Typographie
+----------------------------------------------------------------------------------------------------------
+Nous utiliserons Raleway et Roboto de Google Fonts.
+
+
+Liens
+----------------------------------------------------------------------------------------------------------
+Les liens ne seront pas soulignés et devraient changer de couleur lorsque utilisateur passe dessus.
+
+
+Boutons
+----------------------------------------------------------------------------------------------------------
+Les boutons seront conçus de manière plate en utilisant les couleurs choisies décrites ci-dessus.
+-	#00000
+-	#FFFFF
+

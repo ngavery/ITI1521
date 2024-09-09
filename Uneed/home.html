@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uneed</title>
+        <link rel="icon" type="image/x-icon" href="Image/U.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://learn.microsoft.com/en-us/typography/font-list/segoe-ui">
+        <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto?query=roboto">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;700&display=swap" rel="stylesheet">
+<style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        /*-- Text & image --*/
+        a{
+            color: #000000;
+            font-family: 'Wix Madefor Text', sans-serif;            
+            font-weight: normal;
+            border-radius: 5px;
+            padding: 10px 15px;
+            transition: 150ms;
+        }
+        a:hover{
+            color: white;
+            background-color: #00000073;
+            font-family: 'Wix Madefor Text', sans-serif;            
+            font-weight: normal;
+            border-radius: 200px;
+        }
+        body{
+            font-family: "roboto";
+        }
+        .imagePrinc{
+            left: 0px;
+            top: 0px;
+            width: 100%;
+        }
+        .logoImg{
+            position: absolute;
+            z-index: 1;
+            left: 375px;
+            top: 200px;
+            width: 175px;
+        }
+        .slogan{
+            position: absolute;
+            left: 220px;
+            top: 450px;
+            color: #ffffff;
+            font-family: 'Wix Madefor Text', sans-serif;            
+            font-size: 3em;            
+            font-weight: bold;
+            border-radius: 200px;
+            padding: 10px 20px;
+            text-shadow: 5px, 5px, 5px, black;
+        }
+        .slogan2{
+            position: absolute;
+            left: 165px;
+            top: 500px;
+            color: #ffffff;
+            font-family: 'Wix Madefor Text', sans-serif;            
+            font-size: 3em;            
+            font-weight: bold;
+            border-radius: 200px;
+            padding: 10px 20px;
+            text-shadow: 5px, 5px, 5px, black;
+
+        }
+        .BlueImg{
+            left: 0px;
+            top: 0px;
+            width: 100%;
+        }
+        .BImg{
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100px;
+        }
+        /*-- h1 tags --*/
+        h1{
+            color:black; 
+            font-family: 'Wix Madefor Text', sans-serif;
+            font-weight: bold; 
+            font-size: 3em;
+            margin-top: 75px;
+        }
+        .why{
+            color:#027bcc; 
+            font-family: 'Wix Madefor Text', sans-serif;
+            font-weight: bold; 
+            font-size: 3em;
+            margin-top: 75px;
+        }
+
+        .contact{
+            font-size: 1em;
+            margin-top: auto;
+        }
+
+        p{
+            color:black; 
+            font-family:'Raleway';
+            font-size: 0.5em;
+        }
+        h3{
+            color:#027bcc;   
+            font-family: 'Wix Madefor Text', sans-serif;
+            margin-left: 20px;
+        }
+
+        /*-- Menu --*/
+        .menubar{
+            position: fixed;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+            z-index: 2;
+        }
+        .menubar h3{
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .menubar .navMenu ul{
+            display: flex; 
+        }
+        .menubar .navMenu ul li{
+            margin: 0 20px;
+            font-family: sans-serif;
+            font-size: 1.1em;
+            color: black; 
+        }
+        .menubar .menuHam{
+            display: none;
+            position: absolute;
+            width: 30px;
+            right: 50px;
+            top: 35px;
+        }
+        .u{
+            position: absolute;
+            width: 21px;
+            left: 17px;
+            top: 26px;
+        }
+        
+        /*-- Page // Section --*/
+        .home{
+            display: flex;
+            top: 500px;
+            width: 100%;
+            color:black; 
+            font-size: 1.9em;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /*-- Why use uneed --*/
+        .whyUs{
+            background-color: white;
+            height: 400px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .slide{
+            width: 100%;
+            overflow: hidden;
+        }
+        .slideImage{
+            display: flex; 
+            animation: slide 20s infinite ease-in-out;
+            z-index: 1;
+        }
+        .slideImg{
+            flex-shrink: 0;
+            padding: 72px 0;
+            width: 100%;
+            text-align: center;
+            color: #000000;
+            font-size: 1.4em;
+            font-family: 'Raleway';
+        }
+        .hA{
+            color: #000000;
+            font-size: 1.4em;
+            font-family: 'Raleway';
+        }
+        @keyframes slide {
+            0%,25%{
+                transform: translateX(0);
+            }
+            30%,50%{
+                transform: translateX(-100%);
+            }
+            55%,75%{
+                transform: translateX(-200%);
+            }
+            80%,100%{
+                transform: translateX(-300%);
+            }
+        } 
+
+        /*-- How Uneed Works --*/
+        .appInfo{
+            background-color: #027bcc;
+            height: 1800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .AppDroite {
+            height: 1000px;
+            right: 0;
+            width: 100%;
+        }
+        .AppGauche {
+            height: 1000px;   /*-- J'ai faite des changement pour que tout les écrans peuvent le voir --*/
+            left: 0;
+            width: 100%;
+        }
+        .HowUneed {
+            color: white;
+        }
+        .HowUneed1 {
+            top: 2080px;
+            position: absolute;
+            left: 500px;
+            font-size: 1.2em;
+            color: white;
+            justify-content: center;
+            font-family: 'Wix Madefor text';
+            font-weight: bold
+        }
+        .HowUneed2 {
+            top: 2150px;
+            position: absolute;
+            left: 500px;
+            font-size: 0.8em;
+            color: white;
+            justify-content: center;
+            font-family: "Raleway"
+        }
+        .HowUneed3 {
+            top: 2930px;
+            position: absolute;
+            right: 500px;
+            font-size: 1.2em;
+            color: white;
+            justify-content: right;
+            font-family: 'Wix Madefor text';
+            font-weight: bold
+        }
+        .HowUneed4 {
+            top: 3000px;
+            position: absolute;
+            right: 500px;
+            font-size: 0.8em;
+            color: white;
+            justify-content: center;
+            font-family: "Raleway"
+        }
+        .phone1{
+            width: 500px;
+            margin-left: 0; 
+        }
+        .phone2{
+            width: 500px;
+            margin-right: 0;
+            position: absolute;
+            right: 0;
+        }
+
+             /*-- Download --*/
+        .download{
+            height: 400px;
+            display: flex;
+            width: 100%;
+            background-image: url(Image/downloadAP.png); 
+            background-size: 100% 450px;
+        }
+        .download a{
+           background-color: #00000000;
+        }
+        .downloadg{
+            width: 30%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .downloaddroite{
+            width: 70%;
+            display: flex;
+            align-items: center; 
+            flex-direction: column; 
+        }
+        .downloadImg{
+            height: 200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .downloadImg img {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .downAnd ,.downIos{
+            width: 250px; 
+        }
+        .review{
+            background-color:black;
+            height: 600px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column; 
+        }
+        .review h1{
+            color: white;
+        }
+        .Reviewcommentaire{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row; 
+            width: 90%;
+            padding: 10px;
+        }
+        .commentaire{
+            background-color: white;
+            height: 300px;
+            width: 50%;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+            margin: 10px;
+        }
+        .star{
+           width: 70%;
+        }
+        .commentaire p{
+            color:black; 
+            font-family: 'Wix Madefor Text', sans-serif; 
+            font-size: 0.7em;
+            margin-top: 15px;
+        }
+        /*-- Contact --*/
+        .contactUs{
+            backdrop-filter: rgba(245, 243, 243, 0.445);
+            background-image: url(Image/ContactAR.jpg);
+            background-attachment: fixed;
+            background-size: 100%;
+            height: 650px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;  
+        }
+        .contactform{
+            background-color: #ffffff;
+            max-width: 1100px;
+            margin: 0px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            box-shadow: 0px 10px 50px -10px #ffffff;
+        }
+        .contactform form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 900px;
+        }
+        .contactform form input{
+            width: 45%;
+        }
+        .contactform form textarea{
+            width: 100%;
+            resize: none;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .contactform form input,textarea{
+            margin: 15px 15px;
+            padding: 10px 0;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #bfe5ff;
+            box-sizing: border-box;
+            transition: 0.2s;
+        }
+        .contactform form input:hover{
+            border-bottom: 2px solid #027bcc;
+        }
+        .contactform form textarea:hover{
+            border-bottom: 2px solid #027bcc;
+        }
+        .contactform form button{
+            color: #ffffff;
+            background-color: #027bcc;
+            font-family: 'Wix Madefor Text', sans-serif;
+            font-weight: bold;
+            border: #ffffff;
+            border-radius: 100px;
+            padding: 10px 18px;
+            margin: 0px 15px;
+        }
+        .sousbar{
+            background-color:#5D4E99;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .sousimg{
+            margin-top: 10px;
+            width: 20px; 
+        }
+        
+        .sousimg p {
+            background-color: #5D4E99;
+            margin-top: 0;
+        }
+
+        /*Telephone*/
+        @media screen and (max-width:1170px){
+            .menubar {
+                padding: 0;
+                background-color: white;
+            }
+            .menubar h3,.HowUneed1,.HowUneed2{
+                display: none;
+            }
+            .u{
+                display: none;
+            }
+            .HowUneed,h1,.why{
+                font-size: 1.5em;
+            }
+            .commentaire p{
+                font-size: 0.5em;
+            }
+            .logoImg, .slogan , .slogan2{
+                display: none;
+            }
+            .navMenu{
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.253);
+                backdrop-filter: blur(5px);
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: -100%;    
+            }
+            .mobileMenu{
+                margin-left: 0;
+            }   
+            .menubar .menuHam{
+                display: block;
+            }
+            .navMenu ul{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .menubar .navMenu ul li{
+            margin: 25px 0; 
+            font-size: 1.5em;  
+            }
+            .downAnd ,.downIos{
+                width: 110px;
+                height: auto;
+                padding: 0;
+                margin: 0;
+            }
+            .phone1 ,.phone2{
+                width: 300px;
+                height: auto;
+                padding: 0;
+                margin: 0;
+            }
+            .appInfo{
+                height: 1070px;
+            }
+            .BImg{
+                display: none;
+            }
+            .downloadImg{
+                height: 40px;
+            }
+            .downloaddroite {
+                width: 70%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!--l'entete-->
+    <nav class="menubar" id="menubar">
+        <img class="u" src="Image/U.png" alt="U logo">
+        <h3 class="logo">need</h3>
+        <div class="navMenu">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a class="WhyCUs">Why use Uneed?</a></li>
+                <li><a class="Appfo">How Uneed works</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a class="ContactU">Contact us</a></li>
+                <li><a class="Downl">Download</a></li>
+            </ul>
+        </div>
+        <img src="Image/Hamburger_icon.png" alt="Menu" class="menuHam" id="menuHam" onclick="menuHam">
+    </nav>
+    <!--Section Logo A CHANGER -------------------------------------------------------------->
+    <img class="imagePrinc" src="Image/imagePrinc.png" alt="Village Logo">
+    <img class="logoImg" src="Image/Ulogo.png" alt="U">
+    <div class="slogan">Helping millions of</div>
+    <br>
+    <div class="slogan2"> communities everywhere </div>
+
+    <!--Page d'accueil-->
+    <div class="home" id="home">
+        
+        <!--Section Why use Uneed-->
+        <div class="whyUs" id="whyUs">
+            <h1 class="why">Why use Uneed?</h1>
+            <div class="slide">
+                <div class="slideImage">
+                    <div class="slideImg">
+                        <div class="hA">Over 23,000 cities</div>
+                        <p>Across 13 countries where Uneed is available</p>
+                    </div>
+                    <div class="slideImg">
+                        <div class="hA">Over 250,000</div>
+                        <p>Job offers available now</p>
+                    </div>
+                    <div class="slideImg">
+                        <div class="hA">Jobs of up to 66 dollars an hour</div>
+                        <p></p>
+                    </div>
+                    <div class="slideImg">
+                        <div class="hA">Over 23,000 cities </div>
+                        <p>Across 13 countries where Uneed is available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="BlueImg" src="Image/ecranBleu.png" alt="blue">
+        <!--Section How Uneed works-->
+        <div class="appInfo" id="appInfo">
+            <h1 class="HowUneed">How Uneed works</h1>
+
+            <div class="AppGauche">
+                <img src="Image/UNEED1.png" alt="Phone" class="phone1">
+            </div>
+            <div class="AppDroite">
+    
+                <p class="HowUneed1">Choose from dozens of jobs near you</p>
+                <p class="HowUneed2">Your community is always in need of a helping hand or even an expert on the job.</p>
+                <p class="HowUneed3">Do you need help?</p>
+                <p class="HowUneed4">Reach out to your community and create your own jobs for any task.</p>
+                <img src="Image/UNEED2.png" alt="Phone" class="phone2">
+            </div>
+        </div>
+        <!--Section Download-->
+        <div class="download" id="downloada">
+
+            <div class="downloadg"></div>
+            <div class="downloaddroite">
+                <h1>Download</h1>
+                <div class="downloadImg">
+                    <a href="Image/Uneed.pdf" download="Uneed.pdf"><img src="Image/downloadIOS.png" alt="Download in Ios" class="downIos" ></a>
+                    <a href="Image/Uneed.pdf" download="Uneed.pdf"><img src="Image/downloadAndroid.png" alt="Download in Android" class="downAnd" ></a>
+                </div>
+            </div>
+        </div>
+        <!--Section Review-->
+        <div class="review">
+            <h1>Reviews</h1>
+            <div class="Reviewcommentaire">
+                <div class="commentaire">
+                    <img class="star" src="Image/5-Star.png" alt="star">
+                    <p>I am 12 making 100k per year. This app is amazing.</p>
+                    <h6>-</h6>
+                    <strong><p>Alexandre Smith</p></strong>
+                </div>
+                <div class="commentaire" >
+                    <img class="star" src="Image/5-Star.png" alt="star">
+                    <P>
+                       This app is amazing you guys should try it.
+                    </P>
+                    <h6>-</h6>
+                    <strong><p>Jane doe</p></strong>
+                </div>
+                <div class="commentaire">
+                    <img class="star" src="Image/5-Star.png" alt="star">
+                    <p>
+                        This app is a must get. (PSA) Don't let Alexandre Smith clean your house.
+                    </p>
+                    <h6>-</h6>
+                    <strong><p>John Rack</p></strong>
+                </div>
+            </div>        
+        </div>   
+
+        <!--Section Contact us-->
+        <div class="contactUs" id="contactUs">
+            <img class="BImg" src="Image/ContactBL.png" alt="blue">
+            <div class="contactform" id="contactform">
+                <h1 class="contact">Contact us</h1>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Name" required="">
+                    <input type="email" name="email" placeholder="E-mail" required="">
+                    <input type="text" name="number" placeholder="Phone number" required="">
+                    <input type="text" name="Subject" placeholder="Subject" required="">
+                    <textarea name="message" id="messageAr" placeholder="Message"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <img class="BImg" src="Image/ContactBLL.png" alt="blue">
+        </div>
+        <div class="sousbar">
+            <img class="sousimg" src="Image/Ulogo.png" alt="Uneed">
+            <div class="sousbar">
+                <p>
+                    Copyright &copy; 2023 Uneed. Designed by <strong>Group 22</strong> for the SEG 2900 course at
+                    uOttawa.
+                </p>
+            </div>
+        </div>         
+    </div>
+
+</body>
+<script>
+    // Entete pour le téléphone
+    const menuHamburger = document.querySelector(".menuHam")
+    const navMenu = document.querySelector(".navMenu")
+ 
+    menuHamburger.addEventListener('click',()=>{
+        navMenu.classList.toggle('mobileMenu')
+    })
+        
+    // Change la couleur de l'entete
+    window.addEventListener('scroll', function() {
+    	var menuAppear = document.getElementById('menubar');
+    	var triggerPosition = 1; 
+
+        if (window.pageYOffset > triggerPosition) {
+        menuAppear.style.backgroundColor = "white";
+        } 
+        else {
+        menuAppear.style.backgroundColor = "transparent";
+        }
+
+	});
+
+    // Trouve les pages
+    const whyus = document.querySelector(".WhyCUs")
+    const appinfo = document.querySelector(".Appfo")
+    const contactus = document.querySelector(".ContactU")
+    const downlo = document.querySelector(".Downl")
+
+    whyus.addEventListener('click',()=>{
+        window.scrollTo({
+            top: 800,
+            behavior: "smooth"
+        })
+    })
+    appinfo.addEventListener('click',()=>{
+        window.scrollTo({
+            top: 1440,
+            behavior: "smooth"
+        })
+    })
+    contactus.addEventListener('click',()=>{
+        window.scrollTo({
+            top: 4250,
+            behavior: "smooth"
+        })
+    })
+    downlo.addEventListener('click',()=>{
+        window.scrollTo({
+            top: 3250,
+            behavior: "smooth"
+        })
+    })
+
+</script>
+</html>
